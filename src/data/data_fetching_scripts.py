@@ -26,7 +26,6 @@ def fetchNBAPlayersList():
     See https://developer.twitter.com/en/docs/basics/cursoring for more on the logic of cursoring
     :return: an array of arrays. Each row is string array of the format [userId, screenname]
     """
-
     cursor = -1
     count = 5000 #max according to Twitter API documentation
     listLabelAndID = "list_id=" + NBA_PLAYERS_LIST_ID
