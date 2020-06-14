@@ -49,6 +49,14 @@ def fetchNBAPlayersList():
     return result
 
 def writeListOfStringArraysToCSV(header, data, csvFileName):
+    """
+    Writes the contents into a csv
+    :param header: string array representing the header of the file.
+            For example, a csv representing an edge list might have a header ["source", "target"]
+    :param data: 2d array representing the data.
+            For example, if its an edge list, we might have [["sourcenode1", "targetnode1"], ["sourcenode2, "targetnode1"]]
+    :param csvFileName: name/path of csv file to put the data inside
+    """
 
     with open(csvFileName, "w", newline='') as csvFile:
         csvWriter = csv.writer(csvFile)
@@ -138,17 +146,26 @@ def fetchNBAPlayersSourceTargetRelationships(userIds):
             print(f"-----result (edge list) has been reset to empty list now---")
             batchNumber += 1
 
-    #write out the rest of the data in result when the for-loop is over
+    # write out the rest of the data in result when the for-loop is over
     print(f"-----------writing out the remaining data---------")
     newFile = "nbaNetwork" + str(batchNumber) + ".csv"
     writeListOfStringArraysToCSV(header=nbaNetworkHeaders, data=result, csvFileName=newFile)
 
 
+
+####-------------- comment out the functions below and run the code-----------
+
 # nbaPlayersData = fetchNBAPlayersList()
 # writeListOfStringArraysToCSV(header=nbaPlayersHeaders, data=nbaPlayersData, csvFileName=nbaPlayersFileName)
 
 # nbaPlayersUserIds = fetchNBAPlayersUserIDsFromFile()
+
+
+#### after the below script is complete,
+#### Make sure to consolidate the files in "nbaNetwork0.csv", "nbaNetwork1.csv" etc into one big edge list csv.
+#### I manually consolidated it into one giant edge list file called "overallNBANetwork.csv". You can do it manually or make your own script if you want
 # fetchNBAPlayersSourceTargetRelationships(nbaPlayersUserIds)
+
 
 
 
