@@ -44,12 +44,42 @@ def create_networkx_graph_from_edge_list_csv():
     return graph
 
 
+def getMutualFollowers(graph, filepath):
+    """
+    takes a digraph and finds the number of mutual connections each node has.
+    A mutual connection between u and v means that the graph has the edge u->v and v->u
+    It writes this out into a csv file which we can use in gephi to create a separate analysis for mutual friends network
+    :param graph: a networkx digraph
+    :return: a dictionary where the key is each node and the value is the number of mutual connections it has
+    """
+    nodes = list(graph.nodes)
+    output = {}
+    with open(filepath, "w", newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(["source", "target"])
+        for i in range(0, len(nodes) - 1):
+            for j in range(i+1, len(nodes)):
+                u,v = nodes[i], nodes[j]
+                if graph.has_edge(u, v) and graph.has_edge(v, u):
+                    csvwriter.writerow([u,v])
+                    if u in output:
+                        output[u] += 1
+                    else:
+                        output[u] = 1
+                    if v in output:
+                        output[v] += 1
+                    else:
+                        output[v] = 1
+    return output
 
-plot_in_vs_out_degree(filepath="visualizations/indegree_vs_outdegree.png")
+
+# plot_in_vs_out_degree(filepath="visualizations/indegree_vs_outdegree.png")
 
 # use this graph object + networkx to do any additional graph analysis you might want
 # most of my analysis was actually done in gephi
 graph = create_networkx_graph_from_edge_list_csv()
+getMutualFollowers(graph, "mutual_connections.csv")
+
 
 
 
