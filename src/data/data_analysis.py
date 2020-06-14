@@ -78,7 +78,9 @@ def getMutualFollowers(graph, filepath):
 # use this graph object + networkx to do any additional graph analysis you might want
 # most of my analysis was actually done in gephi
 graph = create_networkx_graph_from_edge_list_csv()
-getMutualFollowers(graph, "mutual_connections.csv")
+average_shortest_path_length = nx.average_shortest_path_length(graph)
+print(average_shortest_path_length)
+# getMutualFollowers(graph, "mutual_connections.csv")
 
 
 
