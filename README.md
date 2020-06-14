@@ -27,5 +27,5 @@ in `src/data/gephiprojectnbanetworkanalysis.graphml.gephi` in gephi. It is a gep
 
 ## Insights
 - I have included some of my results/visualizations in the `src/data/visualizations` directory
-- See my [Medium article](https://github.com/hogeleka/twitter-nba-network-analysis) for a discussion on this project and its results
+- See my [Medium article](https://medium.com/@h.ogeleka/social-network-analysis-of-current-nba-players-on-twitter-b3fb9a741806) for a discussion on this project and its results
 
