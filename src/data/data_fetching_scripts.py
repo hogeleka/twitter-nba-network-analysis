@@ -145,11 +145,10 @@ def fetchNBAPlayersSourceTargetRelationships(userIds):
     writeListOfStringArraysToCSV(header=nbaNetworkHeaders, data=result, csvFileName=newFile)
 
 
-#this chunk has already run and we have the data we need from it. Keep it commented out!!
-nbaPlayersData = fetchNBAPlayersList()
-writeListOfStringArraysToCSV(header=nbaPlayersHeaders, data=nbaPlayersData, csvFileName=nbaPlayersFileName)
+# nbaPlayersData = fetchNBAPlayersList()
+# writeListOfStringArraysToCSV(header=nbaPlayersHeaders, data=nbaPlayersData, csvFileName=nbaPlayersFileName)
 
-nbaPlayersUserIds = fetchNBAPlayersUserIDsFromFile()
+# nbaPlayersUserIds = fetchNBAPlayersUserIDsFromFile()
 # fetchNBAPlayersSourceTargetRelationships(nbaPlayersUserIds)
 
 
